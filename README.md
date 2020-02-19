@@ -8,5 +8,4 @@ Must be activated for the blog (see blog parameters)
 
 Note that this attribute [may not be supported by every browser](https://caniuse.com/#feat=loading-lazy-attr) yet.
 
-Author: Franck Paul
-[Web](https://open-time.net/)
+Author: Franck Paul - [Blog](https://open-time.net/)
