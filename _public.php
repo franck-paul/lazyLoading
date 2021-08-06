@@ -10,8 +10,9 @@
  * @copyright Franck Paul carnet.franck.paul@gmail.com
  * @copyright GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 $core->addBehavior('publicAfterContentFilter', ['lazyLoadingPublicBehaviors', 'publicAfterContentFilter']);
 
@@ -20,10 +21,14 @@ class lazyLoadingPublicBehaviors
     public static function publicAfterContentFilter($core, $tag, $args)
     {
         $core->blog->settings->addNameSpace('lazyLoading');
-        if (!$core->blog->settings->lazyLoading->enabled) {return;}
+        if (!$core->blog->settings->lazyLoading->enabled) {
+            return;
+        }
 
         // If only on Entry/Comment content uncomment next line
-        if (!in_array($tag, ['EntryContent', 'EntryExcerpt', 'CommentContent'])) {return;}
+        if (!in_array($tag, ['EntryContent', 'EntryExcerpt', 'CommentContent'])) {
+            return;
+        }
 
         // Look for img or iframe in content ($args[0])
         // Code adapted from WP Lazy Loading plugin (see https://github.com/WordPress/wp-lazy-loading)
@@ -33,6 +38,7 @@ class lazyLoadingPublicBehaviors
                 // Loading attribute not found, add one
                 return str_replace('<' . $matches[1], '<' . $matches[1] . ' loading="lazy"', $matches[0]);
             }
+
             return $matches[0];
         }, $args[0]);
     }
