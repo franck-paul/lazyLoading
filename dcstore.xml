@@ -1,0 +1,12 @@
+<modules xmlns:da="http://dotaddict.org/da/">
+  <module id="lazyLoading">
+    <name>lazyLoading</name>
+    <version>1.1</version>
+    <author>Franck Paul</author>
+    <desc>Implements lazy loading attribute for images and iframes</desc>
+    <file>https://github.com/franck-paul/lazyLoading/releases/download/1.1/plugin-lazyLoading.zip</file>
+    <da:dcmin>2.19</da:dcmin>
+    <da:details>https://open-time.net/?q=lazyLoading</da:details>
+    <da:support>https://github.com/franck-paul/lazyLoading</da:support>
+  </module>
+</modules>
