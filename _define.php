@@ -23,7 +23,10 @@ $this->registerModule(
         'requires'    => [['core', '2.19']],
         'permissions' => 'usage,contentadmin',                         // Permissions
         'type'        => 'plugin',                                     // Type
-        'support'     => 'https://github.com/franck-paul/lazyLoading', // Support URL
-        'settings'    => ['blog' => '#params.lazy_loading']           // Settings
+        'settings'    => ['blog' => '#params.lazy_loading'],           // Settings
+
+        'details'    => 'https://open-time.net/?q=lazyLoading',       // Details URL
+        'support'    => 'https://github.com/franck-paul/lazyLoading', // Support URL
+        'repository' => 'https://raw.githubusercontent.com/franck-paul/lazyLoading/main/dcstore.xml'
     ]
 );
