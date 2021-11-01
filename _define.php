@@ -27,6 +27,6 @@ $this->registerModule(
 
         'details'    => 'https://open-time.net/?q=lazyLoading',       // Details URL
         'support'    => 'https://github.com/franck-paul/lazyLoading', // Support URL
-        'repository' => 'https://raw.githubusercontent.com/franck-paul/lazyLoading/main/dcstore.xml'
+        'repository' => 'https://raw.githubusercontent.com/franck-paul/lazyLoading/master/dcstore.xml'
     ]
 );
