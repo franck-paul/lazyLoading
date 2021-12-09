@@ -1,8 +1,8 @@
 <modules xmlns:da="http://dotaddict.org/da/">
   <module id="lazyLoading">
-    <name>Implements lazy loading attribute for images and iframes</name>
+    <name>lazyLoading</name>
     <version>1.1</version>
-    <author>Implements lazy loading attribute for images and iframes</author>
+    <author>Franck Paul</author>
     <desc>Implements lazy loading attribute for images and iframes</desc>
     <file>https://github.com/franck-paul/lazyLoading/releases/download/1.1/plugin-lazyLoading-1.1.zip</file>
     <da:dcmin>2.19</da:dcmin>
