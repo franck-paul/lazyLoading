@@ -18,15 +18,15 @@ $this->registerModule(
     'lazyLoading',                                              // Name
     'Implements lazy loading attribute for images and iframes', // Description
     'Franck Paul',                                              // Author
-    '1.1',                                                      // Version
+    '1.2',
     [
-        'requires'    => [['core', '2.19']],
+        'requires'    => [['core', '2.23']],
         'permissions' => 'usage,contentadmin',                         // Permissions
         'type'        => 'plugin',                                     // Type
         'settings'    => ['blog' => '#params.lazy_loading'],           // Settings
 
         'details'    => 'https://open-time.net/?q=lazyLoading',       // Details URL
         'support'    => 'https://github.com/franck-paul/lazyLoading', // Support URL
-        'repository' => 'https://raw.githubusercontent.com/franck-paul/lazyLoading/master/dcstore.xml'
+        'repository' => 'https://raw.githubusercontent.com/franck-paul/lazyLoading/master/dcstore.xml',
     ]
 );

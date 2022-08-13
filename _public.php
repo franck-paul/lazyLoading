@@ -14,14 +14,14 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-$core->addBehavior('publicAfterContentFilter', ['lazyLoadingPublicBehaviors', 'publicAfterContentFilter']);
+dcCore::app()->addBehavior('publicAfterContentFilter', ['lazyLoadingPublicBehaviors', 'publicAfterContentFilter']);
 
 class lazyLoadingPublicBehaviors
 {
-    public static function publicAfterContentFilter($core, $tag, $args)
+    public static function publicAfterContentFilter($core = null, $tag, $args)
     {
-        $core->blog->settings->addNameSpace('lazyLoading');
-        if (!$core->blog->settings->lazyLoading->enabled) {
+        dcCore::app()->blog->settings->addNameSpace('lazyLoading');
+        if (!dcCore::app()->blog->settings->lazyLoading->enabled) {
             return;
         }
 
