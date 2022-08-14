@@ -22,7 +22,7 @@ dcCore::app()->addBehavior('adminBeforeBlogSettingsUpdate', ['lazyLoadingAdminBe
 
 class lazyLoadingAdminBehaviors
 {
-    public static function adminBlogPreferencesForm($core = null, $settings)
+    public static function adminBlogPreferencesForm($core, $settings)
     {
         $settings->addNameSpace('lazyLoading');
         echo

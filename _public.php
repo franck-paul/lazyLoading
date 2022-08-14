@@ -18,7 +18,7 @@ dcCore::app()->addBehavior('publicAfterContentFilter', ['lazyLoadingPublicBehavi
 
 class lazyLoadingPublicBehaviors
 {
-    public static function publicAfterContentFilter($core = null, $tag, $args)
+    public static function publicAfterContentFilter($core, $tag, $args)
     {
         dcCore::app()->blog->settings->addNameSpace('lazyLoading');
         if (!dcCore::app()->blog->settings->lazyLoading->enabled) {
