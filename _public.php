@@ -14,11 +14,9 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-dcCore::app()->addBehavior('publicAfterContentFilter', ['lazyLoadingPublicBehaviors', 'publicAfterContentFilter']);
-
 class lazyLoadingPublicBehaviors
 {
-    public static function publicAfterContentFilter($core, $tag, $args)
+    public static function publicAfterContentFilter($tag, $args)
     {
         dcCore::app()->blog->settings->addNameSpace('lazyLoading');
         if (!dcCore::app()->blog->settings->lazyLoading->enabled) {
@@ -43,3 +41,5 @@ class lazyLoadingPublicBehaviors
         }, $args[0]);
     }
 }
+
+dcCore::app()->addBehavior('publicAfterContentFilterV2', [lazyLoadingPublicBehaviors::class, 'publicAfterContentFilter']);

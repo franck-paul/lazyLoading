@@ -17,12 +17,9 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 // dead but useful code, in order to have translations
 __('lazyLoading') . __('Implements lazy loading attribute for images and iframes');
 
-dcCore::app()->addBehavior('adminBlogPreferencesForm', ['lazyLoadingAdminBehaviors', 'adminBlogPreferencesForm']);
-dcCore::app()->addBehavior('adminBeforeBlogSettingsUpdate', ['lazyLoadingAdminBehaviors', 'adminBeforeBlogSettingsUpdate']);
-
 class lazyLoadingAdminBehaviors
 {
-    public static function adminBlogPreferencesForm($core, $settings)
+    public static function adminBlogPreferencesForm($settings)
     {
         $settings->addNameSpace('lazyLoading');
         echo
@@ -39,3 +36,6 @@ class lazyLoadingAdminBehaviors
         $settings->lazyLoading->put('enabled', !empty($_POST['lazy_loading_enabled']), 'boolean');
     }
 }
+
+dcCore::app()->addBehavior('adminBlogPreferencesFormV2', [lazyLoadingAdminBehaviors::class, 'adminBlogPreferencesForm']);
+dcCore::app()->addBehavior('adminBeforeBlogSettingsUpdate', [lazyLoadingAdminBehaviors::class, 'adminBeforeBlogSettingsUpdate']);

@@ -15,18 +15,21 @@ if (!defined('DC_RC_PATH')) {
 }
 
 $this->registerModule(
-    'lazyLoading',                                              // Name
-    'Implements lazy loading attribute for images and iframes', // Description
-    'Franck Paul',                                              // Author
-    '1.2.1',
+    'lazyLoading',
+    'Implements lazy loading attribute for images and iframes',
+    'Franck Paul',
+    '2.0',
     [
-        'requires'    => [['core', '2.23']],
-        'permissions' => 'usage,contentadmin',                         // Permissions
-        'type'        => 'plugin',                                     // Type
-        'settings'    => ['blog' => '#params.lazy_loading'],           // Settings
+        'requires'    => [['core', '2.24']],
+        'permissions' => dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_USAGE,
+            dcAuth::PERMISSION_CONTENT_ADMIN,
+        ]),
+        'type'     => 'plugin',
+        'settings' => ['blog' => '#params.lazy_loading'],
 
-        'details'    => 'https://open-time.net/?q=lazyLoading',       // Details URL
-        'support'    => 'https://github.com/franck-paul/lazyLoading', // Support URL
+        'details'    => 'https://open-time.net/?q=lazyLoading',
+        'support'    => 'https://github.com/franck-paul/lazyLoading',
         'repository' => 'https://raw.githubusercontent.com/franck-paul/lazyLoading/master/dcstore.xml',
     ]
 );
