@@ -33,11 +33,18 @@ class lazyLoadingPublicBehaviors
         $args[0] = preg_replace_callback('/<(img|iframe)\s[^>]+/', function ($matches) {
             // Look if a loading attribute is already here or not
             if (!preg_match('/\sloading\s*=/', $matches[0])) {
+                $buffer = ' loading="lazy"';
+                // Look if no alt attribute is present or if it is empty
+                if (!preg_match('/\salt="([^"]+?)"\s*/', $matches[0])) {
+                    // Look if a decoding attribute is already here or not
+                    if (!preg_match('/\sdecoding\s*=/', $matches[0])) {
+                        // Decoding attribute not found, add one
+                        $buffer .= ' decoding="async"';
+                    }
+                }
                 // Loading attribute not found, add one
-                return str_replace('<' . $matches[1], '<' . $matches[1] . ' loading="lazy"', $matches[0]);
+                return str_replace('<' . $matches[1], '<' . $matches[1] . $buffer, $matches[0]);
             }
-
-            return $matches[0];
         }, $args[0]);
     }
 }

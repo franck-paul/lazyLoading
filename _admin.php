@@ -27,7 +27,7 @@ class lazyLoadingAdminBehaviors
         '<p><label class="classic">' .
         form::checkbox('lazy_loading_enabled', '1', $settings->lazyLoading->enabled) .
         __('Enable lazy loading implementation') . '</label></p>' .
-            '</div>';
+        '</div>';
     }
 
     public static function adminBeforeBlogSettingsUpdate($settings)
