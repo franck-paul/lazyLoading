@@ -21,7 +21,6 @@ class lazyLoadingAdminBehaviors
 {
     public static function adminBlogPreferencesForm($settings)
     {
-        $settings->addNameSpace('lazyLoading');
         echo
         '<div class="fieldset" id="lazy_loading"><h4>' . __('lazyLoading') . '</h4>' .
         '<p><label class="classic">' .
@@ -32,10 +31,11 @@ class lazyLoadingAdminBehaviors
 
     public static function adminBeforeBlogSettingsUpdate($settings)
     {
-        $settings->addNameSpace('lazyLoading');
         $settings->lazyLoading->put('enabled', !empty($_POST['lazy_loading_enabled']), 'boolean');
     }
 }
 
-dcCore::app()->addBehavior('adminBlogPreferencesFormV2', [lazyLoadingAdminBehaviors::class, 'adminBlogPreferencesForm']);
-dcCore::app()->addBehavior('adminBeforeBlogSettingsUpdate', [lazyLoadingAdminBehaviors::class, 'adminBeforeBlogSettingsUpdate']);
+dcCore::app()->addBehaviors([
+    'adminBlogPreferencesFormV2'    => [lazyLoadingAdminBehaviors::class, 'adminBlogPreferencesForm'],
+    'adminBeforeBlogSettingsUpdate' => [lazyLoadingAdminBehaviors::class, 'adminBeforeBlogSettingsUpdate'],
+]);
