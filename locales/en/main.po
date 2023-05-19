@@ -17,10 +17,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Implements lazy loading attribute for images and iframes"
-msgstr "Implements attribute loading=\"lazy\" for images and iframes"
+msgstr ""
 
 msgid "lazyLoading"
 msgstr ""
 
 msgid "Enable lazy loading implementation"
-msgstr "Enable implementation of attribute loading=\"lazy\" for images and iframes"
+msgstr ""
