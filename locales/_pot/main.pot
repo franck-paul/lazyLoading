@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2 lazyLoading module\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-19 10:32+0100\n"
+"POT-Creation-Date: 2023-05-19 13:17+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,15 +16,15 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../git-plugins/lazyLoading//_admin.php:17
+#: ../git-plugins/lazyLoading/src/Backend.php:27
 msgid "Implements lazy loading attribute for images and iframes"
 msgstr ""
 
-#: ../git-plugins/lazyLoading//_admin.php:17
-#: ../git-plugins/lazyLoading//_admin.php:28
+#: ../git-plugins/lazyLoading/src/Backend.php:27
+#: ../git-plugins/lazyLoading/src/BackendBehaviors.php:29
 msgid "lazyLoading"
 msgstr ""
 
-#: ../git-plugins/lazyLoading//_admin.php:31
+#: ../git-plugins/lazyLoading/src/BackendBehaviors.php:34
 msgid "Enable lazy loading implementation"
 msgstr ""

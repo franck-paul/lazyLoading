@@ -5,16 +5,22 @@
  * @package Dotclear
  * @subpackage Plugins
  *
- * @author Franck Paul
+ * @author Franck Paul and contributors
  *
  * @copyright Franck Paul carnet.franck.paul@gmail.com
  * @copyright GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
  */
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\lazyLoading;
+
+use dcCore;
+
 class lazyLoadingPublicBehaviors
 {
     public static function publicAfterContentFilter($tag, $args)
     {
-        if (!dcCore::app()->blog->settings->lazyLoading->enabled) {
+        if (!dcCore::app()->blog->settings->get(My::id())->enabled) {
             return;
         }
 
@@ -43,5 +49,3 @@ class lazyLoadingPublicBehaviors
         }, $args[0]);
     }
 }
-
-dcCore::app()->addBehavior('publicAfterContentFilterV2', [lazyLoadingPublicBehaviors::class, 'publicAfterContentFilter']);
