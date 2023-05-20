@@ -14,7 +14,7 @@ $this->registerModule(
     'lazyLoading',
     'Implements lazy loading attribute for images and iframes',
     'Franck Paul',
-    '3.0.2',
+    '3.0.3',
     [
         'requires'    => [['core', '2.26']],
         'permissions' => dcCore::app()->auth->makePermissions([
@@ -22,7 +22,7 @@ $this->registerModule(
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]),
         'type'     => 'plugin',
-        'settings' => ['blog' => '#params.lazy_loading'],
+        'settings' => ['blog' => '#params.lazyloading_settings'],
 
         'details'    => 'https://open-time.net/?q=lazyLoading',
         'support'    => 'https://github.com/franck-paul/lazyLoading',
