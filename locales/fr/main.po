@@ -28,5 +28,5 @@ msgstr "lazyLoading"
 
 msgid "Enable lazy loading implementation"
 msgstr ""
-"Active la mise en place de l'attribut loading=\\\"lazy\\\" pour les images "
-"et les iframes"
+"Active la mise en place de l'attribut loading=\"lazy\" pour les images et "
+"les iframes"
