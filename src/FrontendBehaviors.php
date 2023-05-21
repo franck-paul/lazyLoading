@@ -16,7 +16,7 @@ namespace Dotclear\Plugin\lazyLoading;
 
 use dcCore;
 
-class lazyLoadingPublicBehaviors
+class FrontendBehaviors
 {
     public static function publicAfterContentFilter($tag, $args)
     {
