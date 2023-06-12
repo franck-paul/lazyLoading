@@ -14,7 +14,7 @@ $this->registerModule(
     'lazyLoading',
     'Implements lazy loading attribute for images and iframes',
     'Franck Paul',
-    '3.0.4',
+    '3.0.5',
     [
         'requires'    => [['core', '2.26']],
         'permissions' => dcCore::app()->auth->makePermissions([
