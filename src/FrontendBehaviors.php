@@ -14,13 +14,11 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\lazyLoading;
 
-use dcCore;
-
 class FrontendBehaviors
 {
     public static function publicAfterContentFilter($tag, $args)
     {
-        if (!dcCore::app()->blog->settings->get(My::id())->enabled) {
+        if (!My::settings()->enabled) {
             return;
         }
 
@@ -43,6 +41,7 @@ class FrontendBehaviors
                         $buffer .= ' decoding="async"';
                     }
                 }
+
                 // Loading attribute not found, add one
                 return str_replace('<' . $matches[1], '<' . $matches[1] . $buffer, $matches[0]);
             }
