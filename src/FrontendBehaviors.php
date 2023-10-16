@@ -16,15 +16,21 @@ namespace Dotclear\Plugin\lazyLoading;
 
 class FrontendBehaviors
 {
-    public static function publicAfterContentFilter($tag, $args)
+    /**
+     * @param string                        $tag    The tag
+     * @param array<int|string, mixed>      $args   The arguments containing required filter(s) to apply
+     *
+     * @return string
+     */
+    public static function publicAfterContentFilter(string $tag, array $args): string
     {
         if (!My::settings()->enabled) {
-            return;
+            return '';
         }
 
         // If only on Entry/Comment content uncomment next line
         if (!in_array($tag, ['EntryContent', 'EntryExcerpt', 'CommentContent'])) {
-            return;
+            return '';
         }
 
         // Look for img or iframe in content ($args[0])
@@ -46,5 +52,7 @@ class FrontendBehaviors
                 return str_replace('<' . $matches[1], '<' . $matches[1] . $buffer, $matches[0]);
             }
         }, $args[0]);
+
+        return '';
     }
 }

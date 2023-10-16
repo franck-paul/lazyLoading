@@ -22,23 +22,27 @@ use Dotclear\Helper\Html\Form\Para;
 
 class BackendBehaviors
 {
-    public static function adminBlogPreferencesForm($settings)
+    public static function adminBlogPreferencesForm(): string
     {
         echo
         (new Fieldset('lazyloading_settings'))
         ->legend((new Legend(__('lazyLoading'))))
         ->fields([
             (new Para())->items([
-                (new Checkbox('lazy_loading_enabled', $settings->get(My::id())->enabled))
+                (new Checkbox('lazy_loading_enabled', My::settings()->enabled))
                     ->value(1)
                     ->label((new Label(__('Enable lazy loading implementation'), Label::INSIDE_TEXT_AFTER))),
             ]),
         ])
         ->render();
+
+        return '';
     }
 
-    public static function adminBeforeBlogSettingsUpdate($settings)
+    public static function adminBeforeBlogSettingsUpdate(): string
     {
-        $settings->get(My::id())->put('enabled', !empty($_POST['lazy_loading_enabled']), 'boolean');
+        My::settings()->put('enabled', !empty($_POST['lazy_loading_enabled']), 'boolean');
+
+        return '';
     }
 }
