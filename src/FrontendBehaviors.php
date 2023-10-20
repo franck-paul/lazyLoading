@@ -35,7 +35,7 @@ class FrontendBehaviors
 
         // Look for img or iframe in content ($args[0])
         // Code adapted from WP Lazy Loading plugin (see https://github.com/WordPress/wp-lazy-loading)
-        $args[0] = preg_replace_callback('/<(img|iframe)\s[^>]+/', function ($matches) {
+        $args[0] = preg_replace_callback('/<(img|iframe)\s[^>]+/', function (array $matches) {  // @phpstan-ignore-line
             // Look if a loading attribute is already here or not
             if (!preg_match('/\sloading\s*=/', $matches[0])) {
                 $buffer = ' loading="lazy"';
