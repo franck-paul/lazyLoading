@@ -17,12 +17,9 @@ $this->registerModule(
     '4.0',
     [
         'requires'    => [['core', '2.28']],
-        'permissions' => dcCore::app()->auth->makePermissions([
-            dcAuth::PERMISSION_USAGE,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
-        ]),
-        'type'     => 'plugin',
-        'settings' => ['blog' => '#params.lazyloading_settings'],
+        'permissions' => 'My',
+        'type'        => 'plugin',
+        'settings'    => ['blog' => '#params.lazyloading_settings'],
 
         'details'    => 'https://open-time.net/?q=lazyLoading',
         'support'    => 'https://github.com/franck-paul/lazyLoading',

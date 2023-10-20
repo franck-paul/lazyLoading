@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\lazyLoading;
 
-use dcCore;
+use Dotclear\App;
 use Dotclear\Core\Process;
 
 class Frontend extends Process
@@ -36,7 +36,7 @@ class Frontend extends Process
             return false;
         }
 
-        dcCore::app()->addBehavior('publicAfterContentFilterV2', FrontendBehaviors::publicAfterContentFilter(...));
+        App::behavior()->addBehavior('publicAfterContentFilterV2', FrontendBehaviors::publicAfterContentFilter(...));
 
         return true;
     }
