@@ -35,17 +35,15 @@ class FrontendBehaviors
 
         // Look for img or iframe in content ($args[0])
         // Code adapted from WP Lazy Loading plugin (see https://github.com/WordPress/wp-lazy-loading)
-        $args[0] = preg_replace_callback('/<(img|iframe)\s[^>]+/', function (array $matches) {  // @phpstan-ignore-line
+        $args[0] = preg_replace_callback('/<(img|iframe)\s[^>]+/', static function (array $matches) { // @phpstan-ignore-line
             // Look if a loading attribute is already here or not
             if (!preg_match('/\sloading\s*=/', $matches[0])) {
                 $buffer = ' loading="lazy"';
                 // Look if no alt attribute is present or if it is empty
-                if (!preg_match('/\salt="([^"]+?)"\s*/', $matches[0])) {
-                    // Look if a decoding attribute is already here or not
-                    if (!preg_match('/\sdecoding\s*=/', $matches[0])) {
-                        // Decoding attribute not found, add one
-                        $buffer .= ' decoding="async"';
-                    }
+                // Look if a decoding attribute is already here or not
+                if (!preg_match('/\salt="([^"]+?)"\s*/', $matches[0]) && !preg_match('/\sdecoding\s*=/', $matches[0])) {
+                    // Decoding attribute not found, add one
+                    $buffer .= ' decoding="async"';
                 }
 
                 // Loading attribute not found, add one
