@@ -14,7 +14,7 @@ $this->registerModule(
     'lazyLoading',
     'Implements lazy loading attribute for images and iframes',
     'Franck Paul',
-    '5.1',
+    '5.2',
     [
         'requires'    => [['core', '2.28']],
         'permissions' => 'My',
