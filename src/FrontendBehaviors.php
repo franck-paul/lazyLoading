@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @brief lazyLoading, a plugin for Dotclear 2
  *
@@ -49,7 +50,7 @@ class FrontendBehaviors
                 // Loading attribute not found, add one
                 return str_replace('<' . $matches[1], '<' . $matches[1] . $buffer, $matches[0]);
             }
-        }, $args[0]);
+        }, (string) $args[0]);
 
         return '';
     }
