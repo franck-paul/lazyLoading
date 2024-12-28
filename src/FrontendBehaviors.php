@@ -20,8 +20,6 @@ class FrontendBehaviors
     /**
      * @param string                        $tag    The tag
      * @param array<int|string, mixed>      $args   The arguments containing required filter(s) to apply
-     *
-     * @return string
      */
     public static function publicAfterContentFilter(string $tag, array $args): string
     {
