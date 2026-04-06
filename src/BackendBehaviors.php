@@ -57,7 +57,7 @@ class BackendBehaviors
                     ->label((new Label(__('Add the loading="lazy" attribute for images and iframes'), Label::INSIDE_TEXT_AFTER))),
             ]),
             (new Para())->items([
-                (new Checkbox('lazy_loading_dimensions', (bool) My::settings()->enabled))
+                (new Checkbox('lazy_loading_dimensions', (bool) My::settings()->dimensions))
                     ->value(1)
                     ->label((new Label(__('Add the width and height attributes for images if none present'), Label::INSIDE_TEXT_AFTER))),
             ]),
