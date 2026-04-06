@@ -32,6 +32,11 @@ class FrontendBehaviors
             return '';
         }
 
+        $content = is_string($content = $args[0]) ? $content : '';
+        if ($content === '') {
+            return '';
+        }
+
         // Look for img or iframe in content ($args[0])
         // Code adapted from WP Lazy Loading plugin (see https://github.com/WordPress/wp-lazy-loading)
         $args[0] = preg_replace_callback('/<(img|iframe)\s[^>]+/', static function (array $matches) { // @phpstan-ignore-line
@@ -48,7 +53,7 @@ class FrontendBehaviors
                 // Loading attribute not found, add one
                 return str_replace('<' . $matches[1], '<' . $matches[1] . $buffer, $matches[0]);
             }
-        }, (string) $args[0]);
+        }, $content);
 
         return '';
     }

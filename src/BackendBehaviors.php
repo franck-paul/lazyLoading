@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @brief lazyLoading, a plugin for Dotclear 2
  *
@@ -29,7 +30,7 @@ class BackendBehaviors
         ->legend((new Legend(__('lazyLoading'))))
         ->fields([
             (new Para())->items([
-                (new Checkbox('lazy_loading_enabled', My::settings()->enabled))
+                (new Checkbox('lazy_loading_enabled', (bool) My::settings()->enabled))
                     ->value(1)
                     ->label((new Label(__('Enable lazy loading implementation'), Label::INSIDE_TEXT_AFTER))),
             ]),
