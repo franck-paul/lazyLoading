@@ -19,10 +19,32 @@ use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Fieldset;
 use Dotclear\Helper\Html\Form\Label;
 use Dotclear\Helper\Html\Form\Legend;
+use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Para;
 
 class BackendBehaviors
 {
+    /**
+     * @param      array<int, array<int, string>>  $ref    The content to filter
+     */
+    public static function coreContentFilter(string $context, array $ref): string
+    {
+        $settings = My::settings();
+
+        if ($settings->dimensions) {
+            foreach ($ref as $content) {
+                if (isset($content[1]) && $content[1] === 'html') {
+                    $buffer = &$content[0];
+                    if ($buffer !== '') {
+                        $buffer = Helper::doImages($buffer);
+                    }
+                }
+            }
+        }
+
+        return '';
+    }
+
     public static function adminBlogPreferencesForm(): string
     {
         echo
@@ -32,8 +54,16 @@ class BackendBehaviors
             (new Para())->items([
                 (new Checkbox('lazy_loading_enabled', (bool) My::settings()->enabled))
                     ->value(1)
-                    ->label((new Label(__('Enable lazy loading implementation'), Label::INSIDE_TEXT_AFTER))),
+                    ->label((new Label(__('Add the loading="lazy" attribute for images and iframes'), Label::INSIDE_TEXT_AFTER))),
             ]),
+            (new Para())->items([
+                (new Checkbox('lazy_loading_dimensions', (bool) My::settings()->enabled))
+                    ->value(1)
+                    ->label((new Label(__('Add the width and height attributes for images if none present'), Label::INSIDE_TEXT_AFTER))),
+            ]),
+            (new Note())
+                ->class('info')
+                ->text(__('Note that these two options are independent')),
         ])
         ->render();
 
@@ -43,6 +73,7 @@ class BackendBehaviors
     public static function adminBeforeBlogSettingsUpdate(): string
     {
         My::settings()->put('enabled', !empty($_POST['lazy_loading_enabled']), 'boolean');
+        My::settings()->put('dimensions', !empty($_POST['lazy_loading_dimensions']), 'boolean');
 
         return '';
     }

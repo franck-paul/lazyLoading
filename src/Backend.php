@@ -40,6 +40,8 @@ class Backend
         App::behavior()->addBehaviors([
             'adminBlogPreferencesFormV2'    => BackendBehaviors::adminBlogPreferencesForm(...),
             'adminBeforeBlogSettingsUpdate' => BackendBehaviors::adminBeforeBlogSettingsUpdate(...),
+
+            'coreContentFilter' => BackendBehaviors::coreContentFilter(...),
         ]);
 
         return true;
