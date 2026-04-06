@@ -15,9 +15,9 @@ $this->registerModule(
     'lazyLoading',
     'Implements lazy loading attribute for images and iframes',
     'Franck Paul',
-    '6.0',
+    '6.1',
     [
-        'date'        => '2025-09-07T15:59:35+0200',
+        'date'        => '2026-04-06T12:00:32+0200',
         'requires'    => [['core', '2.36']],
         'permissions' => 'My',
         'type'        => 'plugin',
