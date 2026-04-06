@@ -32,22 +32,20 @@ class Helper
     {
         $pattern = '#(?:<img[^>]+src="(.+?)".*?>)#msu';
 
-        if ($buffer !== '') {
-            // Find every image
-            if (preg_match_all($pattern, $buffer, $match) > 0) {
-                foreach ($match[1] as $src) {
-                    self::$images[$src] = [
-                        'w' => 0,
-                        'h' => 0,
-                    ];
-                }
-
-                // Lookup the size for each image found
-                self::getMediaItems();
-
-                // Add size information to every img tag
-                $buffer = preg_replace_callback($pattern, self::photoSize(...), $buffer);
+        // Find every image
+        if ($buffer !== '' && preg_match_all($pattern, $buffer, $match) > 0) {
+            foreach ($match[1] as $src) {
+                self::$images[$src] = [
+                    'w' => 0,
+                    'h' => 0,
+                ];
             }
+
+            // Lookup the size for each image found
+            self::getMediaItems();
+
+            // Add size information to every img tag
+            $buffer = preg_replace_callback($pattern, self::photoSize(...), $buffer);
         }
 
         return $buffer ?? '';
@@ -90,8 +88,6 @@ class Helper
 
     /**
      * @param      array<string>         $match  The match
-     *
-     * @return     string
      */
     protected static function photoSize(array $match): string
     {
