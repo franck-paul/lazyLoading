@@ -15,6 +15,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\lazyLoading;
 
+use Dotclear\App;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Fieldset;
 use Dotclear\Helper\Html\Form\Label;
@@ -72,8 +73,8 @@ class BackendBehaviors
 
     public static function adminBeforeBlogSettingsUpdate(): string
     {
-        My::settings()->put('enabled', !empty($_POST['lazy_loading_enabled']), 'boolean');
-        My::settings()->put('dimensions', !empty($_POST['lazy_loading_dimensions']), 'boolean');
+        My::settings()->put('enabled', !empty($_POST['lazy_loading_enabled']), App::blogWorkspace()::NS_BOOL);
+        My::settings()->put('dimensions', !empty($_POST['lazy_loading_dimensions']), App::blogWorkspace()::NS_BOOL);
 
         return '';
     }
