@@ -28,7 +28,7 @@ class FrontendBehaviors
         }
 
         // If only on Entry/Comment content uncomment next line
-        if (!in_array($tag, ['EntryContent', 'EntryExcerpt', 'CommentContent'])) {
+        if (!in_array($tag, ['EntryContent', 'EntryExcerpt', 'CommentContent'], true)) {
             return '';
         }
 
