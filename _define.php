@@ -18,7 +18,7 @@ $this->registerModule(
     '7.0.1',
     [
         'date'        => '2026-04-06T14:48:40+0200',
-        'requires'    => [['core', '2.36']],
+        'requires'    => [['core', '2.39']],
         'permissions' => 'My',
         'type'        => 'plugin',
         'settings'    => ['blog' => '#params.lazyloading_settings'],

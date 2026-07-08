@@ -32,7 +32,7 @@ class BackendBehaviors
     {
         $settings = My::settings();
 
-        if ($settings->dimensions) {
+        if ($settings->getBool('dimensions')) {
             foreach ($ref as $content) {
                 if (isset($content[1]) && $content[1] === 'html') {
                     $buffer = &$content[0];
@@ -53,12 +53,12 @@ class BackendBehaviors
         ->legend((new Legend(__('lazyLoading'))))
         ->fields([
             (new Para())->items([
-                (new Checkbox('lazy_loading_enabled', (bool) My::settings()->enabled))
+                (new Checkbox('lazy_loading_enabled', My::settings()->getBool('enabled', false)))
                     ->value(1)
                     ->label((new Label(__('Add the loading="lazy" attribute for images and iframes'), Label::INSIDE_TEXT_AFTER))),
             ]),
             (new Para())->items([
-                (new Checkbox('lazy_loading_dimensions', (bool) My::settings()->dimensions))
+                (new Checkbox('lazy_loading_dimensions', My::settings()->getBool('dimensions', false)))
                     ->value(1)
                     ->label((new Label(__('Add the width and height attributes for images if none present'), Label::INSIDE_TEXT_AFTER))),
             ]),

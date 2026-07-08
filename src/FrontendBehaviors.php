@@ -23,7 +23,7 @@ class FrontendBehaviors
      */
     public static function publicAfterContentFilter(string $tag, array $args): string
     {
-        if (!My::settings()->enabled) {
+        if (!My::settings()->getBool('enabled')) {
             return '';
         }
 
