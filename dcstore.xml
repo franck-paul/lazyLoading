@@ -1,12 +1,12 @@
 <modules xmlns:da="http://dotaddict.org/da/">
   <module id="lazyLoading">
     <name>lazyLoading</name>
-    <version>7.0.1</version>
+    <version>8.0</version>
     <author>Franck Paul</author>
     <desc>Implements lazy loading attribute for images and iframes</desc>
-    <date>2026-04-06T14:48:40+0200</date>
-    <file>https://github.com/franck-paul/lazyLoading/releases/download/7.0.1/plugin-lazyLoading-7.0.1.zip</file>
-    <da:dcmin>2.36</da:dcmin>
+    <date>2026-08-03T10:02:09+0200</date>
+    <file>https://github.com/franck-paul/lazyLoading/releases/download/8.0/plugin-lazyLoading-8.0.zip</file>
+    <da:dcmin>2.39</da:dcmin>
     <da:details>https://dotclear.org/plugin/detail/lazyLoading</da:details>
     <da:support>https://github.com/franck-paul/lazyLoading</da:support>
   </module>
