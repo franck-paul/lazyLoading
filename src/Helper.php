@@ -61,9 +61,9 @@ class Helper
         $root_url = App::media()->getRootUrl();
         $p_url    = App::blog()->settings()->get('system')->getStr('public_url', false);
 
-        foreach ($paths as $v) {
+        foreach ($paths as $path) {
             // Extract the file name for the image
-            $file_name = preg_replace('/^' . preg_quote((string) $p_url, '/') . '(\/?)/', '', $v);
+            $file_name = preg_replace('/^' . preg_quote((string) $p_url, '/') . '(\/?)/', '', $path);
 
             // Workaround for a bug with Dotclear 2.36: first make sure the file exists
             if (file_exists($root . '/' . $file_name)) {
@@ -74,14 +74,14 @@ class Helper
                     // Query the image sizes
                     $media_info = getimagesize($f->file);
                     if ($media_info !== false) {
-                        self::$images[$v]['w'] = $media_info[0];
-                        self::$images[$v]['h'] = $media_info[1];
+                        self::$images[$path]['w'] = $media_info[0];
+                        self::$images[$path]['h'] = $media_info[1];
                     }
                 } else {
-                    App::error()->add(__('Unable to find the image file and extract its dimensions for ') . $v);
+                    App::error()->add(__('Unable to find the image file and extract its dimensions for ') . $path);
                 }
             } else {
-                App::error()->add(__('Unable to find the image file and extract its dimensions for ') . $v);
+                App::error()->add(__('Unable to find the image file and extract its dimensions for ') . $path);
             }
         }
     }
