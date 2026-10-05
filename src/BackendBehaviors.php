@@ -16,6 +16,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\lazyLoading;
 
 use Dotclear\App;
+use Dotclear\Core\Content;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Fieldset;
 use Dotclear\Helper\Html\Form\Label;
@@ -26,18 +27,19 @@ use Dotclear\Helper\Html\Form\Para;
 class BackendBehaviors
 {
     /**
-     * @param      array<int, array<int, string>>  $ref    The content to filter
+     * @param      Content[]  $contents    The content to filter
      */
-    public static function coreContentFilter(string $context, array $ref): string
+    public static function coreContentFilter(string $context, array $contents): string
     {
         $settings = My::settings();
 
         if ($settings->getBool('dimensions')) {
-            foreach ($ref as $content) {
-                if (isset($content[1]) && $content[1] === 'html') {
-                    $buffer = &$content[0];
+            foreach ($contents as $content) {
+                if ($content->getFormat() === 'html') {
+                    $buffer = $content->getContent();
                     if ($buffer !== '') {
                         $buffer = Helper::doImages($buffer);
+                        $content->setContent($buffer);
                     }
                 }
             }

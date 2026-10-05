@@ -41,7 +41,7 @@ class Backend
             'adminBlogPreferencesFormV2'    => BackendBehaviors::adminBlogPreferencesForm(...),
             'adminBeforeBlogSettingsUpdate' => BackendBehaviors::adminBeforeBlogSettingsUpdate(...),
 
-            'coreContentFilter' => BackendBehaviors::coreContentFilter(...),
+            'coreContentFilterV2' => BackendBehaviors::coreContentFilter(...),
         ]);
 
         return true;
