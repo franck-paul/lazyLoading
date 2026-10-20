@@ -3,7 +3,7 @@ Lazy Loading plugin for Dotclear 2
 [![Release](https://img.shields.io/github/v/release/franck-paul/lazyLoading)](https://github.com/franck-paul/lazyLoading/releases)
 [![Date](https://img.shields.io/github/release-date/franck-paul/lazyLoading)](https://github.com/franck-paul/lazyLoading/releases)
 [![Issues](https://img.shields.io/github/issues/franck-paul/lazyLoading)](https://github.com/franck-paul/lazyLoading/issues)
-[![License](https://img.shields.io/github/license/franck-paul/lazyLoading)](https://github.com/franck-paul/lazyLoading/blob/master/LICENSE)
+[![License](https://img.shields.io/github/license/franck-paul/lazyLoading)](https://github.com/franck-paul/lazyLoading/blob/main/LICENSE)
 
 ==================================
 
