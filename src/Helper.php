@@ -63,7 +63,7 @@ class Helper
 
         foreach ($paths as $path) {
             // Extract the file name for the image
-            $file_name = preg_replace('/^' . preg_quote((string) $p_url, '/') . '(\/?)/', '', $path);
+            $file_name = preg_replace('/^' . preg_quote($p_url, '/') . '(\/?)/', '', $path);
 
             // Workaround for a bug with Dotclear 2.36: first make sure the file exists
             if (file_exists($root . '/' . $file_name)) {
