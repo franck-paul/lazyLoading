@@ -23,7 +23,7 @@ class FrontendBehaviors
      */
     public static function publicAfterContentFilter(string $tag, array $args): string
     {
-        if (!My::settings()->getBool('enabled')) {
+        if (!My::settings()->getBool('enabled', false)) {
             return '';
         }
 
@@ -42,11 +42,11 @@ class FrontendBehaviors
         // @phpstan-ignore assign.unused ($args[0] is a reference to a string)
         $args[0] = preg_replace_callback('/<(img|iframe)\s[^>]+/', static function (array $matches) {
             // Look if a loading attribute is already here or not
-            if (!preg_match('/\sloading\s*=/', $matches[0])) {
+            if (!(bool) preg_match('/\sloading\s*=/', $matches[0])) {
                 $buffer = ' loading="lazy"';
                 // Look if no alt attribute is present or if it is empty
                 // Look if a decoding attribute is already here or not
-                if (!preg_match('/\salt="([^"]+?)"\s*/', $matches[0]) && !preg_match('/\sdecoding\s*=/', $matches[0])) {
+                if (!(bool) preg_match('/\salt="([^"]+?)"\s*/', $matches[0]) && !(bool) preg_match('/\sdecoding\s*=/', $matches[0])) {
                     // Decoding attribute not found, add one
                     $buffer .= ' decoding="async"';
                 }

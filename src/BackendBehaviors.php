@@ -33,7 +33,7 @@ class BackendBehaviors
     {
         $settings = My::settings();
 
-        if ($settings->getBool('dimensions')) {
+        if ($settings->getBool('dimensions', false)) {
             foreach ($contents as $content) {
                 if ($content->getFormat() === 'html') {
                     $buffer = $content->getContent();
