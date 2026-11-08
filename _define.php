@@ -18,9 +18,9 @@ if (isset($this) && is_object($this) && method_exists($this, 'registerModule') &
         'lazyLoading',
         'Implements lazy loading attribute for images and iframes',
         'Franck Paul',
-        '8.0',
+        '9.0',
         [
-            'date'        => '2026-08-03T10:02:09+0200',
+            'date'        => '2026-11-08T10:15:04+0100',
             'requires'    => [['core', '2.40']],
             'permissions' => 'My',
             'type'        => 'plugin',
