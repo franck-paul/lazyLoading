@@ -56,14 +56,14 @@ class Helper
      */
     protected static function getMediaItems(): void
     {
-        $paths    = array_keys(self::$images);
-        $root     = App::media()->getRoot();
-        $root_url = App::media()->getRootUrl();
-        $p_url    = App::blog()->settings()->get('system')->getStr('public_url', false);
+        $paths      = array_keys(self::$images);
+        $root       = App::media()->getRoot();
+        $root_url   = App::media()->getRootUrl();
+        $public_url = App::blog()->settings()->get('system')->getStr('public_url', false);
 
         foreach ($paths as $path) {
             // Extract the file name for the image
-            $file_name = preg_replace('/^' . preg_quote($p_url, '/') . '(\/?)/', '', $path);
+            $file_name = preg_replace('/^' . preg_quote($public_url, '/') . '(\/?)/', '', $path);
 
             // Workaround for a bug with Dotclear 2.36: first make sure the file exists
             if (file_exists($root . '/' . $file_name)) {
